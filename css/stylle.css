@@ -1,0 +1,1211 @@
+@charset "utf-8";
+
+
+
+/*リセットCSS（sanitize.css）の読み込み
+---------------------------------------------------------------------------*/
+@import url("https://unpkg.com/sanitize.css");
+
+/*lightbox.cssの読み込み
+---------------------------------------------------------------------------*/
+@import url(https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.10.0/css/lightbox.css);
+
+/*Font Awesomeの読み込み
+---------------------------------------------------------------------------*/
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css");
+
+/*Google Fontsの読み込み
+---------------------------------------------------------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display&display=swap');
+
+/*テンプレート専用cssファイルの読み込み
+---------------------------------------------------------------------------*/
+@import url("animation.css");
+
+
+
+/*全体の設定
+---------------------------------------------------------------------------*/
+html,body {
+	margin: 0;padding: 0;
+	height: 100vh;
+	font-size: 10px;	/*基準となるフォントサイズ。下の方にある「画面幅900px以上」で基準を大きなサイズに再設定しています。*/
+}
+
+body {
+	font-family: "ヒラギノ丸ゴ Pro", "Hiragino Maru Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;	/*フォント種類*/
+	-webkit-text-size-adjust: none;
+	background: #fff url(../images/bg.jpg) repeat center center/200px;
+	color: rgb(255, 255, 255);		/*全体の文字色*/
+	line-height: 2;		/*行間*/
+}
+
+/*リセット*/
+figure {margin: 0;}
+dd {margin: 0;}
+nav {margin: 0;padding: 0;}
+
+/*table全般の設定*/
+table {border-collapse:collapse;}
+
+/*画像全般の設定*/
+img {border: none;max-width: 100%;height: auto;vertical-align: middle;}
+
+/*videoタグ*/
+video {max-width: 100%;}
+
+/*iframeタグ*/
+iframe {width: 100%;}
+
+/*ul,olタグ*/
+ul, ol {margin-bottom: 30px;}
+
+
+/*リンクテキスト全般の設定
+---------------------------------------------------------------------------*/
+a {
+	color: #ccc;	/*文字色*/
+	transition: 0.3s;
+}
+
+a:hover {
+	opacity: 0.8;	/*マウスオン時に60%の透明度にする*/
+}
+
+
+/*メインイメージ（bg_main.jpgを読み込んでいます）
+---------------------------------------------------------------------------*/
+#mainimg {
+	text-indent: -9999px;
+	position: fixed;top: 0px;z-index: -1;
+	width: 100%;
+	height: 100%;
+	background: url(../images/bg_main.jpeg) no-repeat center center / cover;
+}
+
+
+/*ヘッダー
+---------------------------------------------------------------------------*/
+/*ヘッダーブロック*/
+header {
+	height: 100%;	/*高さ*/
+}
+
+/*ロゴ画像*/
+header #logo img {
+	width: 200px;		/*幅*/
+	position:fixed;z-index: 2;	/*画面に対して固定表示*/
+	left: -3px;		/*ウィンドウに対して左からの配置場所*/
+	top: -5px;			/*ウィンドウに対して上からの配置場所*/
+	background: #fff;	/*背景色*/
+	box-shadow: 0px 0px 30px rgba(0,0,0,0.3);	/*ボックスの影。右へ、下へ、ぼかし幅。0,0,0は黒の事で0.3は色が30%出た状態。*/
+}
+
+
+/*メインメニュー
+---------------------------------------------------------------------------*/
+/*メニュー１個あたりの設定*/
+#menubar li:not(:nth-of-type(5)) {
+	display: inline-block;
+	transition: 0.5s;
+	text-align: center;
+	font-size: 1.5em;	/*文字サイズ*/
+	position: fixed;	/*画面に対して固定表示*/
+	box-shadow: 0px 0px 30px rgba(0,0,0,0.3);	/*ボックスの影。右へ、下へ、ぼかし幅。0,0,0は黒の事で0.3は色が30%出た状態。*/
+}
+#menubar li a {
+	display: block;text-decoration: none;
+	color: #000;		/*文字色*/
+}
+
+/*４つ目(Instagram)を除き、以下のGoogle Fontsを使う。*/
+#menubar li:not(:nth-of-type(6)) {
+	font-family: 'Big Shoulders Display', cursive;
+}
+
+/*マウスオン時*/
+#menubar li:hover {
+	transform: scale(1.05);		/*105%に拡大*/
+	filter: brightness(1.1);	/*少しだけ明るくする*/
+}
+
+/*１つ目のメニュー(Slogan)*/
+#menubar li:nth-of-type(1) {
+	left: 1%;			/*ウィンドウに対して左からの配置場所*/
+	top: 35%;			/*ウィンドウに対して上からの配置場所*/
+	animation-delay: 0.2s;	/*0.2秒だけ遅れてアニメーションをスタートさせる設定*/
+	background: #fff;	/*背景色*/
+	width: 70px;		/*幅*/
+	line-height: 70px;	/*高さ*/
+	animation: opa1 1.5s both;	/*animation.cssの、opa1を実行する。1.5sは1.5秒の事。*/
+}
+
+/*２つ目のメニュー(Gallery)*/
+#menubar li:nth-of-type(2) {
+	left: 4%;			/*ウィンドウに対して左からの配置場所*/
+	top: 47%;			/*ウィンドウに対して上からの配置場所*/
+	animation-delay: 0.4s;	/*0.4秒だけ遅れてアニメーションをスタートさせる設定*/
+	background: #fff;	/*背景色*/
+	width: 70px;		/*幅*/
+	line-height: 70px;	/*高さ*/
+	animation: opa1 1.5s both;	/*animation.cssの、opa1を実行する。1.5sは1.5秒の事。*/
+}
+
+/*３つ目のメニュー(Link)*/
+#menubar li:nth-of-type(3) {
+	left: 2%;			/*ウィンドウに対して左からの配置場所*/
+	top: 59%;			/*ウィンドウに対して上からの配置場所*/
+	animation-delay: 0.6s;	/*0.6秒だけ遅れてアニメーションをスタートさせる設定*/
+	background: #fff;	/*背景色*/
+	width: 70px;		/*幅*/
+	line-height: 70px;	/*高さ*/
+	animation: opa1 1.5s both;	/*animation.cssの、opa1を実行する。1.5sは1.5秒の事。*/
+}
+
+/*４つ目のメニュー(Instagram)*/
+#menubar li:nth-of-type(4) {
+	left: 5%;			/*ウィンドウに対して左からの配置場所*/
+	top: 71%;			/*ウィンドウに対して上からの配置場所*/
+	animation-delay: 0.8s;	/*0.8秒だけ遅れてアニメーションをスタートさせる設定*/
+	background: #fff;	/*背景色*/
+	width: 70px;		/*幅*/
+	line-height: 70px;	/*高さ*/
+	animation: opa1 1.5s both;	/*animation.cssの、opa1を実行する。1.5sは1.5秒の事。*/
+}
+
+#menubar li:nth-of-type(5) {
+	display: inline-block;
+	transition: 0.5s;
+	text-align: center;
+	font-size: 1.5em;	/*文字サイズ*/
+	position: sticky;	/*画面に対して固定表示*/
+	z-index: 1;
+	box-shadow: 0px 0px 30px rgba(0,0,0,0.3);
+	left: 75%;			/*ウィンドウに対して左からの配置場所*/
+	top: 1%;			/*ウィンドウに対して上からの配置場所*/
+	animation-delay: 0.8s;	/*0.8秒だけ遅れてアニメーションをスタートさせる設定*/
+	background: #fff;	/*背景色*/
+	width: 80px;		/*幅*/
+	line-height: 80px;	/*高さ*/
+	animation: opa1 1.5s both;	/*animation.cssの、opa1を実行する。1.5sは1.5秒の事。*/
+}
+
+
+/*コンテンツ
+---------------------------------------------------------------------------*/
+/*コンテンツ共通*/
+.contents {
+	overflow: hidden;
+	padding: 0 4% 50px 90px;	/*ボックス内の余白。上、右、下、左。*/
+}
+
+
+/*main
+---------------------------------------------------------------------------*/
+/*h2見出し*/
+main h2 {
+	font-size: 2em;			/*文字サイズ*/
+	margin-bottom: 20px;	/*下に空ける余白*/
+	text-align: center;		/*文字をセンタリング*/
+	letter-spacing: 0.2em;	/*文字間隔を広くとる設定*/
+}
+
+/*h2見出しの上の装飾*/
+main h2::before {
+	content: ">";	/*好きな装飾文字に変えてもらって構いませんが機種依存文字は化けるので使わない*/
+	display: block;
+	text-shadow: 20px 10px 0px rgba(8,164,255,0.5);	/*影。右に、下に、ぼかし幅。255,255,255は白の事で0.5は色が50%出た状態の事。*/
+}
+
+/*h2見出し内のspanタグ*/
+main h2 span {
+	display: block;
+	font-size: 0.7em;	/*文字サイズ*/
+}
+
+/*h3見出し*/
+main h3 {
+	margin-bottom: 20px;	/*下に空ける余白*/
+	letter-spacing: 0.1em;	/*文字間隔を広くとる設定*/
+	background: #fff;		/*背景色（古いブラウザ用）*/
+	background: rgba(255,255,255,0.3);	/*255,255,255は白の事で0.3は色が30%出た状態の事。*/
+	text-align: center;		/*文字を中央に*/
+	border-radius: 30px;	/*角丸のサイズ。大きめに設定しておけばOK。*/
+	padding: 0px 20px;		/*上下、左右への余白*/
+}
+Applications/Visual Studio Code.app/Contents/Resources/app/out/vs/code/electron-sandbox/workbench/workbench.html
+/*段落タグ*/
+main p {
+	padding: 0 30px 30px;		/*上、左右、下への余白*/
+}
+
+.center{
+	text-align: center;
+}
+
+/*bg1スタイルのついたコンテンツ*/
+.bg3{
+	background-color: rgb(30, 28, 28);
+}
+
+.bg5{
+	background-color: #606418ec;
+}
+
+
+/*Galleryブロック
+---------------------------------------------------------------------------*/
+/*listボックスを囲むボックス*/
+.list-container {
+	display: flex;					/*flexボックスを使う指定*/
+	flex-wrap: wrap;				/*折り返す指定*/
+	justify-content: space-between;	/*並びかたの種類の指定*/
+}
+
+/*listボックス。１個あたりのボックスの指定です。*/
+.list-container .list {
+	display: flex;					/*flexボックスを使う指定*/
+	flex-direction: column;			/*子要素を縦並びにする*/
+	justify-content: space-between;	/*並びかたの種類の指定*/
+	margin-bottom: 30px;			/*ボックス同士の上下間の余白*/
+	border-radius: 10px;			/*角丸のサイズ。中の画像が正方形であれば、10pxを50%にすることで円形にすることもできます。*/
+	overflow: hidden;
+	width: 22%;						/*幅。1行に何個配置したいか、ここの数値を変更してお好みで調整して下さい。*/
+}
+
+
+.list-container .list :hover{
+	transform: scale(1.05);		/*105%に拡大*/
+	filter: brightness(1.05);	/*少しだけ明るくする*/
+}
+
+/*「お知らせ」ブロック
+---------------------------------------------------------------------------*/
+/*お知らせブロック*/
+#new {
+	padding: 0 20px;	/*上下、左右へのボックス内の余白*/
+}
+/*日付の横のマーク（共通設定）*/
+#new dt span {
+	display: none;	/*小さな端末では非表示にしておく。*/
+}
+
+
+/*フッター設定
+---------------------------------------------------------------------------*/
+footer small {font-size: 100%;}
+
+footer {
+	font-size: 0.6em;		/*文字サイズ*/
+	text-align: center;		/*内容をセンタリング*/
+	padding: 20px;			/*ボックス内の余白*/
+	color: #fff;			/*文字色*/
+}
+
+/*リンクテキスト*/
+footer a {text-decoration: none;color: #fff;}
+
+/*著作部分*/
+footer .pr {display: block;}
+
+
+/*テーブル
+---------------------------------------------------------------------------*/
+/*テーブル１行目に入った見出し部分（※caption）*/
+.ta1 caption {
+	font-weight: bold;		/*太字に*/
+	padding: 10px 5px;		/*上下、左右へのボックス内の余白。基本的に数行下の「.ta1 th, .ta1 td」のpaddingと揃えておけばOKです。*/
+	background: rgba(255,255,255,0.2);
+	margin-bottom: 15px;
+	border-radius: 5px;
+}
+
+/*ta1テーブルブロック設定*/
+.ta1 {
+	border-top: 1px solid rgba(255,255,255,0.5);	/*テーブルの一番上の線。幅、線種、色*/
+	width: 100%;
+	margin: 0 auto 30px;		/*最後の「30px」がテーブルの下に空けるスペースです*/
+}
+
+/*tr（１行分）タグ設定*/
+.ta1 tr {
+	border-bottom: 1px solid rgba(255,255,255,0.5);	/*テーブルの下線。幅、線種、色*/
+}
+
+/*th（左側）、td（右側）の共通設定*/
+.ta1 th, .ta1 td {
+	padding: 10px 5px;		/*上下、左右へのボックス内の余白*。基本的に数行上の「.ta1 caption」のpaddingと揃えておけばOKです。*/
+	word-break: break-all;	/*英語などのテキストを改行で自動的に折り返す設定。これがないと、テーブルを突き抜けて表示される場合があります。*/
+}
+
+/*th（左側）のみの設定*/
+.ta1 th {
+	width: 35%;			/*幅*/
+	text-align: left;	/*左よせにする*/
+	font-size: 10px;
+}
+
+
+/*PAGE TOP（↑）設定
+---------------------------------------------------------------------------*/
+.pagetop-show {display: block;}
+
+/*ボタンの設定*/
+.pagetop a {
+	display: block;text-decoration: none;text-align: center;
+	position: fixed;	/*スクロールに追従しない(固定で表示)為の設定*/
+	z-index: 99;
+	right: 20px;		/*右からの配置場所指定*/
+	bottom: 20px;		/*下からの配置場所指定*/
+	color: #fff;		/*文字色*/
+	font-size: 1.5em;	/*文字サイズ*/
+	background: rgba(0,0,0,0.2);	/*背景色。0,0,0は黒の事で0.2は色が20%出た状態。*/
+	width: 60px;		/*幅*/
+	line-height: 60px;	/*高さ*/
+	border-radius: 50%;	/*円形にする*/
+}
+
+
+/*その他
+---------------------------------------------------------------------------*/
+.clearfix::after {content: "";display: block;clear: both;}
+.color-theme, .color-theme a {color: #74791b !important;}
+.color-check, .color-check a {color: #f00 !important;}
+.c {text-align: center !important;}
+.ws {width: 95%;display: block;}
+.wl {width: 95%;display: block;}
+.mb30 {margin-bottom: 30px !important;}
+.look {display: inline-block;padding: 0px 10px;background: #666; color: #fff; border-radius: 3px;margin: 5px 0;}
+.look .color-check {color: #ffcc00 !important;}
+.small {font-size: 0.6em;}
+.feeling{height: 20px;}
+.warn {font-size:20px; color: rgb(255, 0, 0); text-align: center;background-color: rgba(255, 255, 255, 0.366);}
+.map {text-align: center;}
+.iframe-wrp {
+	position: relative;
+	width:100%;
+	padding-top:75%; /* = height ÷ width × 100 */
+  }
+.iframe-wrp iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 275px;
+	height: 250px;
+  }
+  .Takamatsu{
+	position:sticky;z-index: 1;
+	top: 36%;
+	left: 30%;
+	width: 230px;
+	height: auto;
+}
+
+.slogan1{
+	height: 20px;
+	font-size: 15px;
+}
+
+body{
+	cursor: url(/images/yadon32px.png),auto;
+}
+.zoom{
+	color: white;
+}
+
+
+
+
+/*---------------------------------------------------------------------------
+ここから下は画面幅380px以上の追加指定 iPhone12Pro
+---------------------------------------------------------------------------*/
+@media screen and (min-width:380px) {
+
+
+/*全体の設定
+---------------------------------------------------------------------------*/
+html, body {
+	font-size: 10px;	/*基準となるフォントサイズの上書き*/
+}
+
+
+/*ヘッダー
+---------------------------------------------------------------------------*/
+/*ロゴ画像*/
+header #logo img {
+	width: 200px;	/*幅*/
+	left: 1%;		/*ウィンドウに対して左からの配置場所*/
+	top: 0.3%;
+}
+
+
+/*メインメニュー
+---------------------------------------------------------------------------*/
+/*メニュー１個あたりの設定*/
+#menubar li {
+	font-size: 20px;		/*文字サイズ*/
+}
+
+/*１つ目のメニュー(About)*/
+#menubar li:nth-of-type(1) {
+	left: 8%;			/*ウィンドウに対して左からの配置場所*/
+	top: 24.5%;			/*ウィンドウに対して上からの配置場所*/
+	width: 90px;		/*幅*/
+	line-height: 90px;	/*高さ*/
+}
+
+/*２つ目のメニュー(Gallery)*/
+#menubar li:nth-of-type(2) {
+	left: 1%;			/*ウィンドウに対して左からの配置場所*/
+	top: 35.5%;			/*ウィンドウに対して上からの配置場所*/
+	width: 90px;		/*幅*/
+	line-height: 90px;	/*高さ*/
+}
+
+/*３つ目のメニュー(Link)*/
+#menubar li:nth-of-type(3) {
+	left: 8%;			/*ウィンドウに対して左からの配置場所*/
+	top: 46.5%;			/*ウィンドウに対して上からの配置場所*/
+	width: 90px;		/*幅*/
+	line-height: 90px;	/*高さ*/
+}
+
+/*４つ目のメニュー(Instagram)*/
+#menubar li:nth-of-type(4) {
+	left: 1%;			/*ウィンドウに対して左からの配置場所*/
+	top: 57.5%;			/*ウィンドウに対して上からの配置場所*/
+	width: 90px;		/*幅*/
+	line-height: 90px;	/*高さ*/
+}
+
+#menubar li:nth-of-type(5) {
+	left: 72%;			/*ウィンドウに対して左からの配置場所*/
+	top: 1%;			/*ウィンドウに対して上からの配置場所*/
+	width: 100px;		/*幅*/
+	line-height: 100px;	/*高さ*/
+}
+
+
+/*テーブル
+---------------------------------------------------------------------------*/
+/*テーブル１行目に入った見出し部分（※caption）*/
+.ta1 caption {
+	padding: 5px 15px;		/*上下、左右へのボックス内の余白*/
+}
+
+/*th（左側）、td（右側）の共通設定*/
+.ta1 th, .ta1 td {
+	padding: 12px 15px;		/*上下、左右へのボックス内の余白*/
+}
+
+/*th（左側）のみの設定*/
+.ta1 th {
+	width: 44%;		/*幅*/
+	font-size: 12px;
+}
+
+
+/*その他
+---------------------------------------------------------------------------*/
+.warn{
+	font-size: 20px;
+}
+
+.iframe-wrp {
+	position: relative;
+	width: 100%;
+	padding-top:75%; /* = height ÷ width × 100 */
+  }
+.iframe-wrp iframe {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 250px;
+	height: 250px;
+  }
+
+  .zero{
+	font-size: 1px;
+  }
+
+  .Takamatsu{
+	position:sticky;z-index: 1;
+	top: 40%;
+	left: 45%;
+	height: 120px;
+	width: auto;
+}
+
+.slogan1{
+	height: 20px;
+	font-size: 15px;
+}
+
+.contents {
+	padding-left: 123px;	/*ボックス内の左側にとる余白*/
+}
+
+
+/*　※注意！　下の閉じカッコ　}　はこのブロックに必要なので、削除しないで下さい。　*/
+
+    }
+
+/*---------------------------------------------------------------------------
+ここから下は画面幅800px以上の追加指定 iPadAir
+---------------------------------------------------------------------------*/
+@media screen and (min-width:800px) {
+
+
+	/*全体の設定
+	---------------------------------------------------------------------------*/
+	html, body {
+		font-size: 20px;	/*基準となるフォントサイズの上書き*/
+	}
+	
+	
+	/*ヘッダー
+	---------------------------------------------------------------------------*/
+	/*ロゴ画像*/
+	header #logo img {
+		width: 300px;	/*幅*/
+		left: 1%;		/*ウィンドウに対して左からの配置場所*/
+		top: 0.8%;
+	}
+	
+	
+	/*メインメニュー
+	---------------------------------------------------------------------------*/
+	/*メニュー１個あたりの設定*/
+	#menubar li {
+		font-size: 30px;		/*文字サイズ*/
+	}
+	
+	/*１つ目のメニュー(About)*/
+	#menubar li:nth-of-type(1) {
+		left: 10%;			/*ウィンドウに対して左からの配置場所*/
+		top: 27%;			/*ウィンドウに対して上からの配置場所*/
+		width: 170px;		/*幅*/
+		line-height: 170px;	/*高さ*/
+	}
+	
+	/*２つ目のメニュー(Gallery)*/
+	#menubar li:nth-of-type(2) {
+		left: 2%;			/*ウィンドウに対して左からの配置場所*/
+		top: 41%;			/*ウィンドウに対して上からの配置場所*/
+		width: 160px;		/*幅*/
+		line-height: 160px;	/*高さ*/
+	}
+	
+	/*３つ目のメニュー(Link)*/
+	#menubar li:nth-of-type(3) {
+		left: 9%;			/*ウィンドウに対して左からの配置場所*/
+		top: 54%;			/*ウィンドウに対して上からの配置場所*/
+		width: 180px;		/*幅*/
+		line-height: 180px;	/*高さ*/
+	}
+	
+	/*４つ目のメニュー(Instagram)*/
+	#menubar li:nth-of-type(4) {
+		left: 3%;			/*ウィンドウに対して左からの配置場所*/
+		top: 69%;			/*ウィンドウに対して上からの配置場所*/
+		width: 170px;		/*幅*/
+		line-height: 170px;	/*高さ*/
+	}
+
+	#menubar li:nth-of-type(5) {
+		left: 75%;			/*ウィンドウに対して左からの配置場所*/
+		top: 1%;			/*ウィンドウに対して上からの配置場所*/
+		width: 170px;		/*幅*/
+		line-height: 170px;	/*高さ*/
+	}
+	
+	
+	/*テーブル
+	---------------------------------------------------------------------------*/
+	/*テーブル１行目に入った見出し部分（※caption）*/
+	.ta1 caption {
+		padding: 5px 15px;		/*上下、左右へのボックス内の余白*/
+	}
+	
+	/*th（左側）、td（右側）の共通設定*/
+	.ta1 th, .ta1 td {
+		padding: 12px 15px;		/*上下、左右へのボックス内の余白*/
+	}
+	
+	/*th（左側）のみの設定*/
+	.ta1 th {
+		width: 35%;		/*幅*/
+		font-size: 22px;
+	}
+	
+	
+	/*その他
+	---------------------------------------------------------------------------*/
+	.warn{
+		font-size: 40px;
+	}
+	
+	.iframe-wrp {
+		position: relative;
+		width: 100%;
+		padding-top:75%; /* = height ÷ width × 100 */
+	  }
+	.iframe-wrp iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 530px;
+		height: 500px;
+	  }
+	
+	  .zero{
+		font-size: 10px;
+	  }
+	
+	  .Takamatsu{
+		position:sticky;z-index: 1;
+		top: 40%;
+		left: 45%;
+		height: 200px;
+		width: auto;
+	}
+	
+	.slogan1{
+		height: 20px;
+		font-size: 28px;
+	}
+	
+	.contents {
+		padding-left: 270px;	/*ボックス内の左側にとる余白*/
+	}
+	
+	
+	/*　※注意！　下の閉じカッコ　}　はこのブロックに必要なので、削除しないで下さい。　*/
+	
+	}
+
+/*---------------------------------------------------------------------------
+ここから下は画面幅950px以上の追加指定 FullHDの半分
+---------------------------------------------------------------------------*/
+@media screen and (min-width:950px) {
+
+
+	/*全体の設定
+	---------------------------------------------------------------------------*/
+	html, body {
+		font-size: 19px;	/*基準となるフォントサイズの上書き*/
+	}
+	
+	
+	/*ヘッダー
+	---------------------------------------------------------------------------*/
+	/*ロゴ画像*/
+	header #logo img {
+		width: 270px;	/*幅*/
+		left: 1%;		/*ウィンドウに対して左からの配置場所*/
+		top: 0.8%;
+	}
+	
+	
+	/*メインメニュー
+	---------------------------------------------------------------------------*/
+	/*メニュー１個あたりの設定*/
+	#menubar li {
+		font-size: 35px;		/*文字サイズ*/
+	}
+	
+	/*１つ目のメニュー(About)*/
+	#menubar li:nth-of-type(1) {
+		left: 15%;			/*ウィンドウに対して左からの配置場所*/
+		top: 28%;			/*ウィンドウに対して上からの配置場所*/
+		width: 170px;		/*幅*/
+		line-height: 170px;	/*高さ*/
+	}
+	
+	/*２つ目のメニュー(Gallery)*/
+	#menubar li:nth-of-type(2) {
+		left: 5%;			/*ウィンドウに対して左からの配置場所*/
+		top: 42%;			/*ウィンドウに対して上からの配置場所*/
+		width: 160px;		/*幅*/
+		line-height: 160px;	/*高さ*/
+	}
+	
+	/*３つ目のメニュー(Link)*/
+	#menubar li:nth-of-type(3) {
+		left: 50;			/*ウィンドウに対して左からの配置場所*/
+		top: 58%;			/*ウィンドウに対して上からの配置場所*/
+		width: 180px;		/*幅*/
+		line-height: 180px;	/*高さ*/
+	}
+	
+	/*４つ目のメニュー(Instagram)*/
+	#menubar li:nth-of-type(4) {
+		left: 3%;			/*ウィンドウに対して左からの配置場所*/
+		top: 77%;			/*ウィンドウに対して上からの配置場所*/
+		width: 170px;		/*幅*/
+		line-height: 170px;	/*高さ*/
+	}
+
+	#menubar li:nth-of-type(5) {
+		left: 75%;			/*ウィンドウに対して左からの配置場所*/
+		top: 1%;			/*ウィンドウに対して上からの配置場所*/
+		width: 170px;		/*幅*/
+		line-height: 170px;	/*高さ*/
+	}
+	
+	
+	/*テーブル
+	---------------------------------------------------------------------------*/
+	/*テーブル１行目に入った見出し部分（※caption）*/
+	.ta1 caption {
+		padding: 5px 15px;		/*上下、左右へのボックス内の余白*/
+	}
+	
+	/*th（左側）、td（右側）の共通設定*/
+	.ta1 th, .ta1 td {
+		padding: 12px 15px;		/*上下、左右へのボックス内の余白*/
+	}
+	
+	/*th（左側）のみの設定*/
+	.ta1 th {
+		width: 30%;		/*幅*/
+		font-size: 18px;
+	}
+	
+	
+	/*その他
+	---------------------------------------------------------------------------*/
+	.warn{
+		font-size: 40px;
+	}
+	
+	.iframe-wrp {
+		position: relative;
+		width: 100%;
+		padding-top:75%; /* = height ÷ width × 100 */
+	  }
+	.iframe-wrp iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 570px;
+		height: 500px;
+	  }
+	
+	  .zero{
+		font-size: 2px;
+	  }
+	
+	  .Takamatsu{
+		position:sticky;z-index: 1;
+		top: 30%;
+		left: 45%;
+		height: 250px;
+		width: auto;
+	}
+	
+	.slogan1{
+		height: 20px;
+		font-size: 33px;
+	}
+	
+	.contents {
+		padding-left: 330px;	/*ボックス内の左側にとる余白*/
+	}
+	
+	
+	/*　※注意！　下の閉じカッコ　}　はこのブロックに必要なので、削除しないで下さい。　*/
+	
+	}
+
+/*---------------------------------------------------------------------------
+ここから下は画面幅1150px以上の追加指定 iPadAirの横
+---------------------------------------------------------------------------*/
+@media screen and (min-width:1150px) {
+
+
+	/*全体の設定
+	---------------------------------------------------------------------------*/
+	html, body {
+		font-size: 30px;	/*基準となるフォントサイズの上書き*/
+	}
+	
+	
+	/*ヘッダー
+	---------------------------------------------------------------------------*/
+	/*ロゴ画像*/
+	header #logo img {
+		width: 270px;	/*幅*/
+		left: 1%;		/*ウィンドウに対して左からの配置場所*/
+		top: 0.8%;
+	}
+	
+	
+	/*メインメニュー
+	---------------------------------------------------------------------------*/
+	/*メニュー１個あたりの設定*/
+	#menubar li {
+		font-size: 2em;		/*文字サイズ*/
+	}
+	
+	/*１つ目のメニュー(About)*/
+	#menubar li:nth-of-type(1) {
+		left: 15%;			/*ウィンドウに対して左からの配置場所*/
+		top: 28%;			/*ウィンドウに対して上からの配置場所*/
+		width: 170px;		/*幅*/
+		line-height: 170px;	/*高さ*/
+	}
+	
+	/*２つ目のメニュー(Gallery)*/
+	#menubar li:nth-of-type(2) {
+		left: 5%;			/*ウィンドウに対して左からの配置場所*/
+		top: 42%;			/*ウィンドウに対して上からの配置場所*/
+		width: 160px;		/*幅*/
+		line-height: 160px;	/*高さ*/
+	}
+	
+	/*３つ目のメニュー(Link)*/
+	#menubar li:nth-of-type(3) {
+		left: 50;			/*ウィンドウに対して左からの配置場所*/
+		top: 58%;			/*ウィンドウに対して上からの配置場所*/
+		width: 180px;		/*幅*/
+		line-height: 180px;	/*高さ*/
+	}
+	
+	/*４つ目のメニュー(Instagram)*/
+	#menubar li:nth-of-type(4) {
+		left: 3%;			/*ウィンドウに対して左からの配置場所*/
+		top: 77%;			/*ウィンドウに対して上からの配置場所*/
+		width: 170px;		/*幅*/
+		line-height: 170px;	/*高さ*/
+	}
+	
+	
+	/*テーブル
+	---------------------------------------------------------------------------*/
+	/*テーブル１行目に入った見出し部分（※caption）*/
+	.ta1 caption {
+		padding: 5px 15px;		/*上下、左右へのボックス内の余白*/
+	}
+	
+	/*th（左側）、td（右側）の共通設定*/
+	.ta1 th, .ta1 td {
+		padding: 12px 15px;		/*上下、左右へのボックス内の余白*/
+	}
+	
+	/*th（左側）のみの設定*/
+	.ta1 th {
+		width: 30%;		/*幅*/
+		font-size: 24px;
+	}
+	
+	
+	/*その他
+	---------------------------------------------------------------------------*/
+	.warn{
+		font-size:55px;
+	}
+	
+	.iframe-wrp {
+		position: relative;
+		width: 100%;
+		padding-top:75%; /* = height ÷ width × 100 */
+	  }
+	.iframe-wrp iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 750px;
+		height: 500px;
+	  }
+	
+	  .zero{
+		font-size: 0px;
+	  }
+	
+	  .Takamatsu{
+		position:sticky;z-index: 1;
+		top: 30%;
+		left: 40%;
+		height: 350px;
+		width: auto;
+	}
+	
+	.slogan1{
+		height: 20px;
+		font-size: 45px;
+	}
+	
+	.contents {
+		padding-left: 370px;	/*ボックス内の左側にとる余白*/
+	}
+	
+	
+	/*　※注意！　下の閉じカッコ　}　はこのブロックに必要なので、削除しないで下さい。　*/
+	
+	}
+
+/*---------------------------------------------------------------------------
+ここから下は画面幅1400px以上の追加指定 macbook
+---------------------------------------------------------------------------*/
+@media screen and (min-width:1400px) {
+
+
+	/*全体の設定
+	---------------------------------------------------------------------------*/
+	html, body {
+		font-size: 22px;	/*基準となるフォントサイズの上書き*/
+	}
+	
+	.feeling{
+		font-size: 34px;
+	}
+	
+	
+	/*ヘッダー
+	---------------------------------------------------------------------------*/
+	/*ロゴ画像*/
+	header #logo img {
+		width: 270px;	/*幅*/
+		left: 1%;		/*ウィンドウに対して左からの配置場所*/
+		top: 0.8%;
+	}
+	
+	
+	/*メインメニュー
+	---------------------------------------------------------------------------*/
+	/*メニュー１個あたりの設定*/
+	#menubar li {
+		font-size: 32px;		/*文字サイズ*/
+	}
+	
+	/*１つ目のメニュー(About)*/
+	#menubar li:nth-of-type(1) {
+		left: 15%;			/*ウィンドウに対して左からの配置場所*/
+		top: 32%;			/*ウィンドウに対して上からの配置場所*/
+		width: 170px;		/*幅*/
+		line-height: 170px;	/*高さ*/
+	}
+	
+	/*２つ目のメニュー(Gallery)*/
+	#menubar li:nth-of-type(2) {
+		left: 5%;			/*ウィンドウに対して左からの配置場所*/
+		top: 42%;			/*ウィンドウに対して上からの配置場所*/
+		width: 160px;		/*幅*/
+		line-height: 160px;	/*高さ*/
+	}
+	
+	/*３つ目のメニュー(Link)*/
+	#menubar li:nth-of-type(3) {
+		left: 50;			/*ウィンドウに対して左からの配置場所*/
+		top: 60%;			/*ウィンドウに対して上からの配置場所*/
+		width: 180px;		/*幅*/
+		line-height: 180px;	/*高さ*/
+	}
+	
+	/*４つ目のメニュー(Instagram)*/
+	#menubar li:nth-of-type(4) {
+		left: 3%;			/*ウィンドウに対して左からの配置場所*/
+		top: 77%;			/*ウィンドウに対して上からの配置場所*/
+		width: 170px;		/*幅*/
+		line-height: 170px;	/*高さ*/
+	}
+
+	#menubar li:nth-of-type(5) {
+		left: 75%;			/*ウィンドウに対して左からの配置場所*/
+		top: 1%;			/*ウィンドウに対して上からの配置場所*/
+		width: 170px;		/*幅*/
+		line-height: 170px;	/*高さ*/
+	}
+	
+	
+	/*テーブル
+	---------------------------------------------------------------------------*/
+	/*テーブル１行目に入った見出し部分（※caption）*/
+	.ta1 caption {
+		padding: 5px 15px;		/*上下、左右へのボックス内の余白*/
+	}
+	
+	/*th（左側）、td（右側）の共通設定*/
+	.ta1 th, .ta1 td {
+		padding: 12px 15px;		/*上下、左右へのボックス内の余白*/
+	}
+	
+	/*th（左側）のみの設定*/
+	.ta1 th {
+		width: 22%;		/*幅*/
+		font-size: 27px;
+	}
+	
+	
+	/*その他
+	---------------------------------------------------------------------------*/
+	.warn{
+		font-size: 50px;
+	}
+	
+	.iframe-wrp {
+		position: relative;
+		width: 100%;
+		padding-top:75%; /* = height ÷ width × 100 */
+	  }
+	.iframe-wrp iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 900px;
+		height: 700px;
+	  }
+	
+	  .zero{
+		font-size: 0px;
+	  }
+	
+	  .Takamatsu{
+		position:sticky;z-index: 1;
+		top: 30%;
+		left: 45%;
+		height: 250px;
+		width: auto;
+	}
+	
+	.slogan1{
+		height: 20px;
+		font-size: 40px;
+	}
+	
+	.contents {
+		padding-left: 430px;	/*ボックス内の左側にとる余白*/
+	}
+	
+	
+	/*　※注意！　下の閉じカッコ　}　はこのブロックに必要なので、削除しないで下さい。　*/
+	
+	}
+
+/*---------------------------------------------------------------------------
+ここから下は画面幅1900px以上の追加指定 FullHD
+---------------------------------------------------------------------------*/
+@media screen and (min-width:1900px) {
+
+
+	/*全体の設定
+	---------------------------------------------------------------------------*/
+	html, body {
+		font-size: 24px;	/*基準となるフォントサイズの上書き*/
+	}
+	
+	
+	/*ヘッダー
+	---------------------------------------------------------------------------*/
+	/*ロゴ画像*/
+	header #logo img {
+		width: 300px;	/*幅*/
+		left: 4%;		/*ウィンドウに対して左からの配置場所*/
+		top: 0.8%;
+	}
+	
+	
+	/*メインメニュー
+	---------------------------------------------------------------------------*/
+	/*メニュー１個あたりの設定*/
+	#menubar li {
+		font-size: 2em;		/*文字サイズ*/
+	}
+	
+	/*１つ目のメニュー(About)*/
+	#menubar li:nth-of-type(1) {
+		left: 15%;			/*ウィンドウに対して左からの配置場所*/
+		top: 30%;			/*ウィンドウに対して上からの配置場所*/
+		width: 220px;		/*幅*/
+		line-height: 220px;	/*高さ*/
+	}
+	
+	/*２つ目のメニュー(Gallery)*/
+	#menubar li:nth-of-type(2) {
+		left: 5%;			/*ウィンドウに対して左からの配置場所*/
+		top: 47%;			/*ウィンドウに対して上からの配置場所*/
+		width: 250px;		/*幅*/
+		line-height: 250px;	/*高さ*/
+	}
+	
+	/*３つ目のメニュー(Link)*/
+	#menubar li:nth-of-type(3) {
+		left: 15%;			/*ウィンドウに対して左からの配置場所*/
+		top: 67%;			/*ウィンドウに対して上からの配置場所*/
+		width: 180px;		/*幅*/
+		line-height: 180px;	/*高さ*/
+	}
+	
+	/*４つ目のメニュー(Instagram)*/
+	#menubar li:nth-of-type(4) {
+		left: 7%;			/*ウィンドウに対して左からの配置場所*/
+		top: 79%;			/*ウィンドウに対して上からの配置場所*/
+		width: 170px;		/*幅*/
+		line-height: 170px;	/*高さ*/
+	}
+	
+	
+	/*テーブル
+	---------------------------------------------------------------------------*/
+	/*テーブル１行目に入った見出し部分（※caption）*/
+	.ta1 caption {
+		padding: 5px 15px;		/*上下、左右へのボックス内の余白*/
+	}
+	
+	/*th（左側）、td（右側）の共通設定*/
+	.ta1 th, .ta1 td {
+		padding: 12px 15px;		/*上下、左右へのボックス内の余白*/
+	}
+	
+	/*th（左側）のみの設定*/
+	.ta1 th {
+		width: 15%;		/*幅*/
+		font-size: 22px;
+	}
+	
+	
+	/*その他
+	---------------------------------------------------------------------------*/
+	.warn{
+		font-size: 55px;
+	}
+	
+	.iframe-wrp {
+		position: relative;
+		width: 100%;
+		padding-top:75%; /* = height ÷ width × 100 */
+	  }
+	.iframe-wrp iframe {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 1100px;
+		height: 800px;
+	  }
+	
+	  .zero{
+		font-size: 0px;
+	  }
+	
+	  .Takamatsu{
+		position:sticky;z-index: 1;
+		top: 30%;
+		left: 45%;
+		height: 300px;
+		width: auto;
+	}
+	
+	.slogan1{
+		height: 20px;
+		font-size: 50px;
+	}
+	
+	.contents {
+		padding-left: 700px;	/*ボックス内の左側にとる余白*/
+	}
+	
+	
+	/*　※注意！　下の閉じカッコ　}　はこのブロックに必要なので、削除しないで下さい。　*/
+	
+	}
