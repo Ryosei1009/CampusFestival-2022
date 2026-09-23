@@ -86,5 +86,5 @@
 
 ## Contact
 
-- GitHub: [@ShinoChan0](https://github.com/ShinoChan0)
-- Portfolio: [portfolio.shino.zip](https://portfolio.shino.zip)
+- GitHub: [@Ryosei1009](https://github.com/Ryosei1009)
+- Portfolio: [www.shinoryo.com](https://www.shinoryo.com)
